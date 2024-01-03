@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import axios from "axios";
 export function CreateTodo(){
 const [title, setTitle] = useState("");
 const [description, setDescription] = useState("");
@@ -25,6 +25,16 @@ const [description, setDescription] = useState("");
                 margin: 10
             }} onClick={() => {
                 //axios
+                axios.post("http://localhost:3000/todo", {
+                    title : title,
+                    description: description 
+                })
+                .then( (res) => {
+                    const json =  res.json();
+                    alert("Todo added");
+                });
+                //without axios 
+                /*
                 fetch("http://localhost:3000/todo" , {
                     method : "POST",
                     body: JSON.stringify({
@@ -39,6 +49,7 @@ const [description, setDescription] = useState("");
                     const json = await res.json();
                     alert("Todo added");
                 })
+                */
             }}>Add a todo</button>
         </div>
     )
