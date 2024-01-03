@@ -65,4 +65,4 @@ app.put("/completed", async (req,res) => {
 });
 
 app.listen(3000);
-mongoose.connect("mongodb+srv://singh001shruti:eoYn0wHIr4puEx0z@cluster0.k9nfaff.mongodb.net/todos");
+mongoose.connect("");
